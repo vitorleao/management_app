@@ -1,0 +1,14 @@
+
+version: '3'
+
+services:
+  web:
+    build: .
+    # or take the image from dockerhub
+    # image: vitorleao/management_app:latest
+    command: ./entrypoint.sh
+    volumes:
+      - ./employee-manager:/app
+      - ./employee-manager/db.sqlite3:/app/db.sqlite3
+    ports:
+      - "8000:8000"
